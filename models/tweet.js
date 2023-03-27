@@ -13,4 +13,10 @@ const tweetSchema = new Schema({
     author: String,
     likes: { type: String,default: 0},
     sponsered: { type: Boolean, default: fasle }
-} ,{timestamps: true})
+} ,{timestamps: true}) // timestamps go outside because its a "config" or "param" that wouldnt go inside
+
+// create Tweet model
+const Tweet = mongoose.model('Tweet', tweetSchema)
+
+
+module.exports = Tweet;
