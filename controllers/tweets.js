@@ -3,7 +3,7 @@ const router = express.Router();
 // import the Tweet model
 const Tweet = require('../models/tweet.js');
 
-// middleware
+
 
 
 // async / await 
@@ -11,8 +11,10 @@ const Tweet = require('../models/tweet.js');
 // Create
 router.post('/', async (req, res) => {
 
-	console.log('req.body', req.body)
-	res.send('tweet post route');
+	// console.log('req.body', req.body)
+	// res.send(req.body);
+	const tweet = await Tweet.create(req.body)
+	res.send(tweet);
 
 });
 
