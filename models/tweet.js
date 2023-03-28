@@ -12,7 +12,7 @@ const tweetSchema = new Schema({
     body: String,
     author: String,
     likes: { type: String,default: 0},
-    sponsered: { type: Boolean, default: fasle }
+    sponsered: { type: Boolean, default: false }
 } ,{timestamps: true}) // timestamps go outside because its a "config" or "param" that wouldnt go inside
 
 // create Tweet model
