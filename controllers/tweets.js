@@ -32,17 +32,22 @@ router.get('/seed', async (req, res) => {
 
 // Show
 router.get('/:id', async (req, res) => {
-	res.send('tweet show route');
+	const tweet = await Tweet.findById(req.params.id)
+	res.send(tweet);
 });
 
 // Delete
 router.delete('/:id', async (req, res) => {
-	res.send('tweet delete route');
+	const tweet = await Tweet.findByIdAndDelete(req.params.id);
+	res.send({success: true, tweet});
 });
 
 // Update
 router.put('/:id', async (req, res) => {
-	res.send('tweet update route');
+	const tweet = await Tweet.findByIdAndUpdate(req.params.id, req.body, {
+		new: true
+	})
+	res.send(tweet);
 });
 
 module.exports = router;
