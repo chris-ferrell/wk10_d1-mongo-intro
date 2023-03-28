@@ -20,7 +20,9 @@ router.post('/', async (req, res) => {
 
 // Index
 router.get('/', async (req, res) => {
-	res.send('tweet index route');
+	// giving it empty curly braces tells it to find everything
+	const tweets = await Tweet.find({})
+	res.send(tweets);
 });
 
 // Seed
