@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // import the Tweet model
 const Tweet = require('../models/tweet.js');
-
+const tweetSeed = require('../db/tweetSeed.js');
 
 
 
@@ -27,7 +27,11 @@ router.get('/', async (req, res) => {
 
 // Seed
 router.get('/seed', async (req, res) => {
-	res.redirect('tweet seed route');
+	// deletes everything in database
+	await Tweet.deleteMany({});
+	// creating all tweetSeed data in database
+	await Tweet.create(tweetSeed);
+	res.redirect('/tweets');
 });
 
 // Show
