@@ -8,7 +8,7 @@ const Tweet = require('../models/tweet.js');
 
 // async / await 
 
-// Create
+// Create       `async` is need for to use `await`
 router.post('/', async (req, res) => {
 
 	// console.log('req.body', req.body)
